@@ -1,82 +1,40 @@
 <!DOCTYPE html>
-document.getElementById('login').style.display='none';
-document.getElementById('buyer').style.display='none';
-document.getElementById('dashboard').style.display='none';
+<html>
+<head>
+<title>Test PetroTrade</title>
 
-document.getElementById(page).style.display='block';
+<style>
+body{
+    background:#071c26;
+    color:white;
+    font-family:Arial;
 }
-
-function showRegister(){
-document.getElementById('registerBox').style.display='block';
+.box{
+    width:400px;
+    margin:100px auto;
+    background:#081f2b;
+    padding:30px;
+    border-radius:10px;
 }
-
-// REGISTER
-function register(){
-let users=JSON.parse(localStorage.getItem('users'))||[];
-
-users.push({
-name:document.getElementById('regName').value,
-email:document.getElementById('regEmail').value,
-pass:document.getElementById('regPass').value
-});
-
-localStorage.setItem('users',JSON.stringify(users));
-alert('Account created successfully');
+button{
+    background:#d4af37;
+    padding:12px;
+    border:none;
+    width:100%;
 }
+</style>
 
-// LOGIN
-function login(){
-let users=JSON.parse(localStorage.getItem('users'))||[];
+</head>
+<body>
 
-let email=document.getElementById('loginEmail').value;
-let pass=document.getElementById('loginPass').value;
+<div class="box">
+<h2>Login Test</h2>
 
-let found=users.find(u=>u.email===email && u.pass===pass);
+<input placeholder="Email"><br><br>
+<input placeholder="Password"><br><br>
 
-if(found){
-alert('Login successful');
-show('dashboard');
-loadRequests();
-}else{
-alert('Wrong email or password');
-}
-}
-
-// SAVE REQUEST
-function saveRequest(){
-let requests=JSON.parse(localStorage.getItem('requests'))||[];
-
-requests.push({
-company:document.getElementById('company').value,
-product:document.getElementById('product').value,
-quantity:document.getElementById('quantity').value,
-email:document.getElementById('email').value,
-message:document.getElementById('message').value
-});
-
-localStorage.setItem('requests',JSON.stringify(requests));
-alert('Request saved successfully');
-}
-
-// LOAD REQUESTS
-function loadRequests(){
-let requests=JSON.parse(localStorage.getItem('requests'))||[];
-let box=document.getElementById('list');
-box.innerHTML='';
-
-requests.forEach(r=>{
-box.innerHTML+=`
-<div class="card">
-<h3>${r.company}</h3>
-<p>${r.product}</p>
-<p>${r.quantity} MT</p>
-<p>${r.email}</p>
-<p>${r.message}</p>
-</div>`;
-});
-}
-
-</script>
+<button>Login</button>
+</div>
 
 </body>
 </html>
