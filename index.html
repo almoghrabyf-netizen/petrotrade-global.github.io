@@ -3,11 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PetroTrade Global</title>
+<title>PetroTrade Global | Oil Trading Platform</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#07141d;color:white;}
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#07141d;
+color:white;
+}
 
+/* HEADER */
 header{
 background:#041018;
 padding:20px 60px;
@@ -17,7 +23,11 @@ align-items:center;
 border-bottom:1px solid #1c3c50;
 }
 
-.logo{font-size:24px;color:#d4af37;font-weight:bold;}
+.logo{
+font-size:24px;
+font-weight:bold;
+color:#d4af37;
+}
 
 nav a{
 color:white;
@@ -26,32 +36,75 @@ margin-left:25px;
 font-size:14px;
 }
 
+/* HERO */
 .hero{
 padding:100px 60px;
 background:linear-gradient(to right,#07141d,#0c2a3b);
 }
 
-.hero h1{font-size:42px;margin-bottom:20px;}
-.hero p{font-size:18px;color:#c7d0d6;max-width:700px;}
+.hero h1{
+font-size:42px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+color:#c7d0d6;
+max-width:700px;
+}
+
+.buttons{
+margin-top:35px;
+}
 
 .btn{
 padding:15px 30px;
 text-decoration:none;
 display:inline-block;
-margin-top:30px;
 margin-right:15px;
 border-radius:4px;
+font-size:16px;
 }
 
-.primary{background:#d4af37;color:black;}
-.secondary{border:1px solid #d4af37;color:#d4af37;}
+.primary{
+background:#d4af37;
+color:black;
+}
 
+.secondary{
+border:1px solid #d4af37;
+color:#d4af37;
+}
+
+/* PRICE SECTION */
+.price-section{
+padding:60px;
+}
+
+.price-title{
+color:#d4af37;
+margin-bottom:25px;
+}
+
+.price-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.price-box{
+background:#041018;
+padding:25px;
+border-radius:8px;
+}
+
+/* FOOTER */
 footer{
 background:#020b11;
 padding:40px;
 text-align:center;
-margin-top:80px;
 color:#8fa3ad;
+margin-top:80px;
 }
 </style>
 </head>
@@ -75,9 +128,91 @@ color:#8fa3ad;
 
 <p>PetroTrade Global connects verified buyers and sellers of crude oil, diesel EN590, Jet Fuel A1 and LNG worldwide.</p>
 
+<div class="buttons">
 <a href="buyer-request.html" class="btn primary">Request Petroleum Products</a>
 <a href="seller-registration.html" class="btn secondary">Register as Seller</a>
+</div>
 </section>
+
+<!-- MARKET PRICES -->
+<section class="price-section">
+
+<h2 class="price-title">Global Energy & Commodity Market Prices</h2>
+
+<div class="price-grid">
+
+<!-- BRENT -->
+<div class="price-box">
+<h3 style="color:#d4af37;">Brent Crude Oil</h3>
+<div id="brent_chart"></div>
+</div>
+
+<!-- WTI -->
+<div class="price-box">
+<h3 style="color:#d4af37;">WTI Crude Oil</h3>
+<div id="wti_chart"></div>
+</div>
+
+<!-- NATURAL GAS -->
+<div class="price-box">
+<h3 style="color:#d4af37;">Natural Gas (LNG Market Reference)</h3>
+<div id="gas_chart"></div>
+</div>
+
+<!-- GOLD -->
+<div class="price-box">
+<h3 style="color:#d4af37;">Gold Market Price</h3>
+<div id="gold_chart"></div>
+</div>
+
+</div>
+
+</section>
+
+<!-- TRADINGVIEW SCRIPT -->
+<script src="https://s3.tradingview.com/tv.js"></script>
+
+<script>
+new TradingView.widget({
+"width": "100%",
+"height": 280,
+"symbol": "TVC:UKOIL",
+"interval": "D",
+"theme": "dark",
+"style": "1",
+"container_id": "brent_chart"
+});
+
+new TradingView.widget({
+"width": "100%",
+"height": 280,
+"symbol": "TVC:USOIL",
+"interval": "D",
+"theme": "dark",
+"style": "1",
+"container_id": "wti_chart"
+});
+
+new TradingView.widget({
+"width": "100%",
+"height": 280,
+"symbol": "NYMEX:NG1!",
+"interval": "D",
+"theme": "dark",
+"style": "1",
+"container_id": "gas_chart"
+});
+
+new TradingView.widget({
+"width": "100%",
+"height": 280,
+"symbol": "OANDA:XAUUSD",
+"interval": "D",
+"theme": "dark",
+"style": "1",
+"container_id": "gold_chart"
+});
+</script>
 
 <footer>
 PetroTrade Global © 2026 | International Petroleum Trading Platform
