@@ -6,12 +6,7 @@
 <title>Login - PetroTrade Global</title>
 
 <style>
-body{
-margin:0;
-font-family:Arial;
-background:#07141d;
-color:white;
-}
+body{margin:0;font-family:Arial;background:#07141d;color:white;}
 
 header{
 background:#041018;
@@ -19,13 +14,9 @@ padding:20px 60px;
 border-bottom:1px solid #1c3c50;
 }
 
-.logo{
-color:#d4af37;
-font-size:24px;
-font-weight:bold;
-}
+.logo{color:#d4af37;font-size:24px;font-weight:bold;}
 
-.login-box{
+.form{
 max-width:500px;
 margin:80px auto;
 background:#041018;
@@ -33,7 +24,7 @@ padding:40px;
 border-radius:8px;
 }
 
-input, select{
+input,select{
 width:100%;
 padding:14px;
 margin-top:15px;
@@ -49,16 +40,9 @@ padding:15px;
 background:#d4af37;
 border:none;
 font-size:16px;
-cursor:pointer;
 }
 
-.back{
-margin-top:20px;
-display:block;
-text-align:center;
-color:#d4af37;
-text-decoration:none;
-}
+a{color:#d4af37;text-decoration:none;display:block;margin-top:20px;text-align:center;}
 </style>
 </head>
 
@@ -68,21 +52,21 @@ text-decoration:none;
 <div class="logo">PetroTrade Global</div>
 </header>
 
-<div class="login-box">
+<div class="form">
 
-<h2>Login to Your Account</h2>
+<h2>Login</h2>
 
 <select>
 <option>Login as Buyer</option>
 <option>Login as Seller</option>
 </select>
 
-<input type="email" placeholder="Email Address">
+<input type="email" placeholder="Email">
 <input type="password" placeholder="Password">
 
 <button>Login</button>
 
-<a href="index.html" class="back">Back to Home</a>
+<a href="index.html">Back to Home</a>
 
 </div>
 
