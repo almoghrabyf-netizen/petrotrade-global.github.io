@@ -3,17 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PetroTrade Global | International Oil Trading Platform</title>
+<title>Seller Registration - PetroTrade Global</title>
 
 <style>
 body{
 margin:0;
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial;
 background:#07141d;
 color:white;
 }
 
-/* header */
 header{
 background:#041018;
 padding:20px 60px;
@@ -25,61 +24,14 @@ border-bottom:1px solid #1c3c50;
 
 .logo{
 font-size:24px;
+color:#d4af37;
 font-weight:bold;
-color:#d4af37;
 }
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:30px;
-font-size:14px;
-}
-
-/* hero */
-.hero{
-padding:100px 60px;
-background:linear-gradient(to right,#07141d,#0c2a3b);
-}
-
-.hero h1{
-font-size:42px;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:18px;
-color:#c7d0d6;
+.form{
 max-width:700px;
-}
-
-.buttons{
-margin-top:35px;
-}
-
-.btn{
-padding:15px 30px;
-text-decoration:none;
-display:inline-block;
-margin-right:15px;
-border-radius:4px;
-font-size:16px;
-}
-
-.primary{
-background:#d4af37;
-color:black;
-}
-
-.secondary{
-border:1px solid #d4af37;
-color:#d4af37;
-}
-
-/* search box */
-.search{
+margin:60px auto;
 background:#041018;
-margin:60px;
 padding:40px;
 border-radius:8px;
 }
@@ -89,7 +41,7 @@ display:block;
 margin-top:20px;
 }
 
-input,select{
+input,select,textarea{
 width:100%;
 padding:12px;
 margin-top:10px;
@@ -99,20 +51,18 @@ color:white;
 }
 
 button{
-margin-top:25px;
-padding:15px;
+margin-top:30px;
 width:100%;
+padding:15px;
 background:#d4af37;
 border:none;
 font-size:16px;
 }
 
-/* footer */
 footer{
 background:#020b11;
-padding:40px;
+padding:30px;
 text-align:center;
-color:#8fa3ad;
 margin-top:60px;
 }
 </style>
@@ -122,34 +72,13 @@ margin-top:60px;
 
 <header>
 <div class="logo">PetroTrade Global</div>
-<nav>
-<a href="index.html">Home</a>
-<a href="buyer-request.html">Find Suppliers</a>
-<a href="seller-registration.html">Register as Seller</a>
-</nav>
 </header>
 
-<section class="hero">
-<h1>Global Platform for Crude Oil & Petroleum Trading</h1>
-<p>Connect with verified international buyers and sellers of crude oil, diesel EN590, Jet Fuel A1, LNG and petroleum products worldwide.</p>
+<div class="form">
+<h2>Seller Registration Form</h2>
 
-<div class="buttons">
-<a href="buyer-request.html" class="btn primary">Request Petroleum Products</a>
-<a href="seller-registration.html" class="btn secondary">Register as Seller</a>
-</div>
-</section>
-
-<section class="search">
-<h2>Search Suppliers by Country</h2>
-
-<label>Product</label>
-<select>
-<option>Crude Oil</option>
-<option>Diesel EN590</option>
-<option>Jet Fuel A1</option>
-<option>LNG</option>
-<option>LPG</option>
-</select>
+<label>Company Name</label>
+<input type="text">
 
 <label>Country</label>
 <select>
@@ -157,19 +86,33 @@ margin-top:60px;
 <option>Saudi Arabia</option>
 <option>Qatar</option>
 <option>Kuwait</option>
+<option>Germany</option>
 <option>United States</option>
 <option>Nigeria</option>
-<option>Germany</option>
 </select>
 
-<label>Quantity (MT)</label>
-<input type="text" placeholder="Example: 50,000 MT">
+<label>Product You Sell</label>
+<select>
+<option>Crude Oil</option>
+<option>Diesel EN590</option>
+<option>Jet Fuel A1</option>
+<option>LNG</option>
+</select>
 
-<button>Search Verified Sellers</button>
-</section>
+<label>Available Quantity (Monthly)</label>
+<input type="text">
+
+<label>Email</label>
+<input type="email">
+
+<label>Company Details</label>
+<textarea></textarea>
+
+<button>Register</button>
+</div>
 
 <footer>
-PetroTrade Global © 2026 | International Petroleum Trading Platform
+PetroTrade Global © 2026
 </footer>
 
 </body>
