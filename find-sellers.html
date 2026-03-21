@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Find Sellers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Sellers - PetroTrade Global</title>
 
 <style>
 body{margin:0;font-family:Arial;background:#07141d;color:white;}
@@ -10,10 +11,20 @@ body{margin:0;font-family:Arial;background:#07141d;color:white;}
 header{
 background:#041018;
 padding:20px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 border-bottom:1px solid #1c3c50;
 }
 
-.logo{color:#d4af37;font-size:24px;font-weight:bold;}
+.logo{font-size:24px;color:#d4af37;font-weight:bold;}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-size:14px;
+}
 
 .filter{padding:40px 60px;}
 
@@ -39,6 +50,13 @@ border-radius:8px;
 }
 
 .card h3{color:#d4af37;}
+
+footer{
+background:#020b11;
+padding:30px;
+text-align:center;
+margin-top:60px;
+}
 </style>
 </head>
 
@@ -46,9 +64,19 @@ border-radius:8px;
 
 <header>
 <div class="logo">PetroTrade Global</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="find-sellers.html">Find Sellers</a>
+<a href="buyer-request.html">Buyer Request</a>
+<a href="seller-registration.html">Register as Seller</a>
+<a href="login.html">Login</a>
+</nav>
 </header>
 
 <div class="filter">
+
+<h2>Find Verified Petroleum Sellers</h2>
 
 <select id="country">
 <option value="all">All Countries</option>
@@ -82,6 +110,10 @@ border-radius:8px;
 </div>
 
 </div>
+
+<footer>
+PetroTrade Global © 2026
+</footer>
 
 <script>
 function filter(){
