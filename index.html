@@ -3,250 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PetroTrade Global | Crude Oil & Petroleum Trading Platform</title>
+<title>PetroTrade Global | International Oil Trading Platform</title>
 
 <style>
-
-/* ===== GENERAL ===== */
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #07141d;
-    color: white;
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#07141d;
+color:white;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+/* header */
+header{
+background:#041018;
+padding:20px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #1c3c50;
 }
 
-/* ===== HEADER ===== */
-
-header {
-    background-color: #041018;
-    border-bottom: 1px solid #1c3c50;
+.logo{
+font-size:24px;
+font-weight:bold;
+color:#d4af37;
 }
 
-.header-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
+nav a{
+color:white;
+text-decoration:none;
+margin-left:30px;
+font-size:14px;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #d4af37;
+/* hero */
+.hero{
+padding:100px 60px;
+background:linear-gradient(to right,#07141d,#0c2a3b);
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 30px;
-    font-size: 14px;
-    transition: 0.3s;
+.hero h1{
+font-size:42px;
+margin-bottom:20px;
 }
 
-nav a:hover {
-    color: #d4af37;
+.hero p{
+font-size:18px;
+color:#c7d0d6;
+max-width:700px;
 }
 
-/* ===== HERO ===== */
-
-.hero {
-    padding: 100px 0;
-    background: linear-gradient(to right, #07141d, #0c2a3b);
+.buttons{
+margin-top:35px;
 }
 
-.hero h1 {
-    font-size: 44px;
-    margin-bottom: 20px;
+.btn{
+padding:15px 30px;
+text-decoration:none;
+display:inline-block;
+margin-right:15px;
+border-radius:4px;
+font-size:16px;
 }
 
-.hero p {
-    font-size: 18px;
-    color: #c7d0d6;
-    max-width: 700px;
+.primary{
+background:#d4af37;
+color:black;
 }
 
-.hero-buttons {
-    margin-top: 35px;
+.secondary{
+border:1px solid #d4af37;
+color:#d4af37;
 }
 
-.btn {
-    padding: 15px 30px;
-    margin-right: 15px;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 4px;
+/* search box */
+.search{
+background:#041018;
+margin:60px;
+padding:40px;
+border-radius:8px;
 }
 
-.btn-primary {
-    background-color: #d4af37;
-    color: black;
+label{
+display:block;
+margin-top:20px;
 }
 
-.btn-secondary {
-    background-color: transparent;
-    border: 1px solid #d4af37;
-    color: #d4af37;
+input,select{
+width:100%;
+padding:12px;
+margin-top:10px;
+background:#07141d;
+border:1px solid #1c3c50;
+color:white;
 }
 
-/* ===== SEARCH BOX ===== */
-
-.search-box {
-    background-color: #041018;
-    padding: 50px;
-    border-radius: 8px;
-    margin-top: -50px;
+button{
+margin-top:25px;
+padding:15px;
+width:100%;
+background:#d4af37;
+border:none;
+font-size:16px;
 }
 
-.search-box h2 {
-    margin-bottom: 20px;
+/* footer */
+footer{
+background:#020b11;
+padding:40px;
+text-align:center;
+color:#8fa3ad;
+margin-top:60px;
 }
-
-label {
-    display: block;
-    margin-top: 20px;
-    margin-bottom: 8px;
-}
-
-input, select {
-    width: 100%;
-    padding: 12px;
-    background-color: #07141d;
-    border: 1px solid #1c3c50;
-    color: white;
-    border-radius: 4px;
-}
-
-.search-button {
-    margin-top: 25px;
-    width: 100%;
-    padding: 15px;
-    background-color: #d4af37;
-    border: none;
-    font-size: 16px;
-    color: black;
-    cursor: pointer;
-}
-
-/* ===== FEATURES ===== */
-
-.features {
-    padding: 80px 0;
-}
-
-.features-box {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-}
-
-.feature {
-    background-color: #041018;
-    padding: 30px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.feature h3 {
-    color: #d4af37;
-}
-
-/* ===== FOOTER ===== */
-
-footer {
-    background-color: #020b11;
-    padding: 40px 0;
-    margin-top: 60px;
-    text-align: center;
-    color: #8fa3ad;
-}
-
-/* ===== MOBILE ===== */
-
-@media (max-width: 900px) {
-
-.hero h1 {
-    font-size: 30px;
-}
-
-.features-box {
-    flex-direction: column;
-}
-
-nav {
-    display: none;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- ===== HEADER ===== -->
-
 <header>
-<div class="container header-box">
-
 <div class="logo">PetroTrade Global</div>
-
 <nav>
 <a href="index.html">Home</a>
-<a href="#">Find Sellers</a>
+<a href="buyer-request.html">Find Suppliers</a>
 <a href="seller-registration.html">Register as Seller</a>
-<a href="#">Login</a>
 </nav>
-
-</div>
 </header>
 
-<!-- ===== HERO ===== -->
-
 <section class="hero">
-<div class="container">
+<h1>Global Platform for Crude Oil & Petroleum Trading</h1>
+<p>Connect with verified international buyers and sellers of crude oil, diesel EN590, Jet Fuel A1, LNG and petroleum products worldwide.</p>
 
-<h1>International Platform for Crude Oil & Petroleum Products</h1>
-
-<p>
-PetroTrade Global connects verified buyers and sellers of crude oil, diesel, jet fuel,
-LNG and petroleum products worldwide.
-</p>
-
-<div class="hero-buttons">
-
-<a href="buyer-request.html" class="btn btn-primary">
-Request Petroleum Products
-</a>
-
-<a href="seller-registration.html" class="btn btn-secondary">
-Register as Seller
-</a>
-
-</div>
-
+<div class="buttons">
+<a href="buyer-request.html" class="btn primary">Request Petroleum Products</a>
+<a href="seller-registration.html" class="btn secondary">Register as Seller</a>
 </div>
 </section>
 
-<!-- ===== SEARCH ===== -->
-
-<section class="container">
-<div class="search-box">
-
-<h2>Find Petroleum Suppliers by Country</h2>
+<section class="search">
+<h2>Search Suppliers by Country</h2>
 
 <label>Product</label>
-<select required>
+<select>
 <option>Crude Oil</option>
 <option>Diesel EN590</option>
 <option>Jet Fuel A1</option>
@@ -255,7 +152,7 @@ Register as Seller
 </select>
 
 <label>Country</label>
-<select required>
+<select>
 <option>United Arab Emirates</option>
 <option>Saudi Arabia</option>
 <option>Qatar</option>
@@ -263,47 +160,16 @@ Register as Seller
 <option>United States</option>
 <option>Nigeria</option>
 <option>Germany</option>
-<option>India</option>
-<option>China</option>
 </select>
 
 <label>Quantity (MT)</label>
-<input type="text" placeholder="Example: 50,000 MT" required>
+<input type="text" placeholder="Example: 50,000 MT">
 
-<button class="search-button">Search Verified Sellers</button>
-
-</div>
+<button>Search Verified Sellers</button>
 </section>
-
-<!-- ===== FEATURES ===== -->
-
-<section class="features container">
-
-<div class="features-box">
-
-<div class="feature">
-<h3>Verified Companies</h3>
-<p>Only verified petroleum buyers and sellers with real business licenses.</p>
-</div>
-
-<div class="feature">
-<h3>Global Trading</h3>
-<p>Find suppliers from the Middle East, Africa, Europe, Asia and worldwide.</p>
-</div>
-
-<div class="feature">
-<h3>Secure Negotiation</h3>
-<p>Buyers and sellers communicate safely before closing the deal.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- ===== FOOTER ===== -->
 
 <footer>
-<p>PetroTrade Global © 2026 | International Petroleum Trading Platform</p>
+PetroTrade Global © 2026 | International Petroleum Trading Platform
 </footer>
 
 </body>
