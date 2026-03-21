@@ -6,86 +6,12 @@
 <title>Seller Registration - PetroTrade Global</title>
 
 <style>
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#07141d;
-color:white;
-}
-
-/* HEADER */
-header{
-background:#041018;
-padding:20px 60px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid #1c3c50;
-}
-
-.logo{
-font-size:24px;
-font-weight:bold;
-color:#d4af37;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:30px;
-font-size:14px;
-}
-
-/* FORM */
-.form{
-max-width:750px;
-margin:60px auto;
-background:#041018;
-padding:40px;
-border-radius:8px;
-}
-
-h2{
-margin-bottom:10px;
-}
-
-p{
-color:#c7d0d6;
-margin-bottom:30px;
-}
-
-label{
-display:block;
-margin-top:20px;
-}
-
-input,select,textarea{
-width:100%;
-padding:12px;
-margin-top:10px;
-background:#07141d;
-border:1px solid #1c3c50;
-color:white;
-}
-
-button{
-margin-top:30px;
-width:100%;
-padding:15px;
-background:#d4af37;
-border:none;
-font-size:16px;
-cursor:pointer;
-}
-
-/* FOOTER */
-footer{
-background:#020b11;
-padding:30px;
-text-align:center;
-margin-top:60px;
-color:#8fa3ad;
-}
+body{margin:0;font-family:Arial;background:#07141d;color:white;}
+header{background:#041018;padding:20px 60px;border-bottom:1px solid #1c3c50;}
+.logo{color:#d4af37;font-size:24px;font-weight:bold;}
+.form{max-width:700px;margin:60px auto;background:#041018;padding:40px;border-radius:8px;}
+input,select,textarea{width:100%;padding:12px;margin-top:15px;background:#07141d;border:1px solid #1c3c50;color:white;}
+button{margin-top:25px;width:100%;padding:15px;background:#d4af37;border:none;}
 </style>
 </head>
 
@@ -93,55 +19,32 @@ color:#8fa3ad;
 
 <header>
 <div class="logo">PetroTrade Global</div>
-
-<nav>
-<a href="index.html">Home</a>
-<a href="buyer-request.html">Buyer Request</a>
-<a href="seller-registration.html">Register as Seller</a>
-</nav>
 </header>
 
 <div class="form">
 <h2>Seller Registration Form</h2>
-<p>Register your company and start selling crude oil and petroleum products worldwide.</p>
 
-<label>Company Name</label>
-<input type="text">
-
-<label>Country</label>
+<input type="text" placeholder="Company Name">
 <select>
 <option>United Arab Emirates</option>
 <option>Saudi Arabia</option>
 <option>Qatar</option>
 <option>Kuwait</option>
-<option>Germany</option>
-<option>United States</option>
 <option>Nigeria</option>
 </select>
 
-<label>Product You Sell</label>
 <select>
 <option>Crude Oil</option>
 <option>Diesel EN590</option>
 <option>Jet Fuel A1</option>
-<option>LNG</option>
 </select>
 
-<label>Available Quantity (Monthly)</label>
-<input type="text">
-
-<label>Email</label>
-<input type="email">
-
-<label>Company Details</label>
-<textarea></textarea>
+<input type="text" placeholder="Available Quantity (Monthly)">
+<input type="email" placeholder="Email">
+<textarea placeholder="Company Details"></textarea>
 
 <button>Register</button>
 </div>
-
-<footer>
-PetroTrade Global © 2026 | International Petroleum Trading Platform
-</footer>
 
 </body>
 </html>
