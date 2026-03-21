@@ -3,23 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PetroTrade Global</title>
+
+<title>PetroTrade Global | Crude Oil & Petroleum Trading Platform</title>
 
 <style>
+
+/* ===== GENERAL ===== */
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #0b1d2a;
+    background-color: #07141d;
     color: white;
 }
 
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ===== HEADER ===== */
+
 header {
-    background-color: #081620;
-    padding: 20px 60px;
+    background-color: #041018;
+    border-bottom: 1px solid #1c3c50;
+}
+
+.header-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #1e3a4d;
+    padding: 20px 0;
 }
 
 .logo {
@@ -33,26 +48,33 @@ nav a {
     text-decoration: none;
     margin-left: 30px;
     font-size: 14px;
+    transition: 0.3s;
 }
 
+nav a:hover {
+    color: #d4af37;
+}
+
+/* ===== HERO ===== */
+
 .hero {
-    padding: 100px 60px;
-    background: linear-gradient(to right, #0b1d2a, #0f2d40);
+    padding: 100px 0;
+    background: linear-gradient(to right, #07141d, #0c2a3b);
 }
 
 .hero h1 {
-    font-size: 42px;
+    font-size: 44px;
     margin-bottom: 20px;
 }
 
 .hero p {
     font-size: 18px;
-    color: #cfd8dc;
+    color: #c7d0d6;
     max-width: 700px;
 }
 
-.buttons {
-    margin-top: 30px;
+.hero-buttons {
+    margin-top: 35px;
 }
 
 .btn {
@@ -63,6 +85,7 @@ nav a {
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
+    border-radius: 4px;
 }
 
 .btn-primary {
@@ -76,45 +99,61 @@ nav a {
     color: #d4af37;
 }
 
+/* ===== SEARCH BOX ===== */
+
 .search-box {
-    background-color: #081620;
-    margin: 60px;
-    padding: 40px;
+    background-color: #041018;
+    padding: 50px;
     border-radius: 8px;
+    margin-top: -50px;
 }
 
 .search-box h2 {
     margin-bottom: 20px;
 }
 
+label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
 input, select {
     width: 100%;
     padding: 12px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    background-color: #0b1d2a;
-    border: 1px solid #1e3a4d;
+    background-color: #07141d;
+    border: 1px solid #1c3c50;
     color: white;
+    border-radius: 4px;
 }
 
 .search-button {
+    margin-top: 25px;
     width: 100%;
-    padding: 14px;
+    padding: 15px;
     background-color: #d4af37;
-    color: black;
-    font-size: 16px;
     border: none;
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
 }
 
+/* ===== FEATURES ===== */
+
 .features {
+    padding: 80px 0;
+}
+
+.features-box {
     display: flex;
-    justify-content: space-around;
-    padding: 80px 40px;
-    background-color: #081620;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 .feature {
-    max-width: 300px;
+    background-color: #041018;
+    padding: 30px;
+    border-radius: 8px;
     text-align: center;
 }
 
@@ -122,49 +161,92 @@ input, select {
     color: #d4af37;
 }
 
+/* ===== FOOTER ===== */
+
 footer {
-    background-color: #050e14;
-    padding: 40px;
+    background-color: #020b11;
+    padding: 40px 0;
+    margin-top: 60px;
     text-align: center;
-    color: #9aa5ab;
+    color: #8fa3ad;
 }
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 900px) {
+
+.hero h1 {
+    font-size: 30px;
+}
+
+.features-box {
+    flex-direction: column;
+}
+
+nav {
+    display: none;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- ===== HEADER ===== -->
+
 <header>
+<div class="container header-box">
+
 <div class="logo">PetroTrade Global</div>
+
 <nav>
 <a href="index.html">Home</a>
 <a href="#">Find Sellers</a>
-<a href="#">Register as Seller</a>
+<a href="seller-registration.html">Register as Seller</a>
 <a href="#">Login</a>
 </nav>
+
+</div>
 </header>
 
-<section class="hero">
-<h1>The International Platform for Crude Oil & Petroleum Trading</h1>
-<p>PetroTrade Global connects verified buyers and sellers of crude oil, diesel, jet fuel, LNG and petroleum products worldwide.</p>
+<!-- ===== HERO ===== -->
 
-<div class="buttons">
+<section class="hero">
+<div class="container">
+
+<h1>International Platform for Crude Oil & Petroleum Products</h1>
+
+<p>
+PetroTrade Global connects verified buyers and sellers of crude oil, diesel, jet fuel,
+LNG and petroleum products worldwide.
+</p>
+
+<div class="hero-buttons">
 
 <a href="buyer-request.html" class="btn btn-primary">
 Request Petroleum Products
 </a>
 
-<a href="#" class="btn btn-secondary">
+<a href="seller-registration.html" class="btn btn-secondary">
 Register as Seller
 </a>
 
 </div>
+
+</div>
 </section>
 
-<section class="search-box">
-<h2>Search Petroleum Products by Country</h2>
+<!-- ===== SEARCH ===== -->
+
+<section class="container">
+<div class="search-box">
+
+<h2>Find Petroleum Suppliers by Country</h2>
 
 <label>Product</label>
-<select>
+<select required>
 <option>Crude Oil</option>
 <option>Diesel EN590</option>
 <option>Jet Fuel A1</option>
@@ -173,7 +255,7 @@ Register as Seller
 </select>
 
 <label>Country</label>
-<select>
+<select required>
 <option>United Arab Emirates</option>
 <option>Saudi Arabia</option>
 <option>Qatar</option>
@@ -181,24 +263,32 @@ Register as Seller
 <option>United States</option>
 <option>Nigeria</option>
 <option>Germany</option>
+<option>India</option>
+<option>China</option>
 </select>
 
 <label>Quantity (MT)</label>
-<input type="text" placeholder="Example: 50,000 MT">
+<input type="text" placeholder="Example: 50,000 MT" required>
 
 <button class="search-button">Search Verified Sellers</button>
+
+</div>
 </section>
 
-<section class="features">
+<!-- ===== FEATURES ===== -->
+
+<section class="features container">
+
+<div class="features-box">
 
 <div class="feature">
 <h3>Verified Companies</h3>
-<p>Only real buyers and sellers with company verification and business documents.</p>
+<p>Only verified petroleum buyers and sellers with real business licenses.</p>
 </div>
 
 <div class="feature">
 <h3>Global Trading</h3>
-<p>Find petroleum buyers and suppliers from the Middle East, Africa, Europe, Asia and worldwide.</p>
+<p>Find suppliers from the Middle East, Africa, Europe, Asia and worldwide.</p>
 </div>
 
 <div class="feature">
@@ -206,7 +296,11 @@ Register as Seller
 <p>Buyers and sellers communicate safely before closing the deal.</p>
 </div>
 
+</div>
+
 </section>
+
+<!-- ===== FOOTER ===== -->
 
 <footer>
 <p>PetroTrade Global © 2026 | International Petroleum Trading Platform</p>
