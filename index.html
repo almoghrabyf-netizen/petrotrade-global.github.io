@@ -1,301 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PetroTrade Global | Oil Trading Platform</title>
 
-<style>
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#07141d;
-color:white;
-}
+    <input type="number" id="quantity" placeholder="Quantity (MT)">
+    <input type="email" id="buyerEmail" placeholder="Email">
 
-/* HEADER */
-header{
-background:#041018;
-padding:20px 60px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid #1c3c50;
-}
+    <textarea id="message" placeholder="Message"></textarea>
 
-.logo{
-font-size:24px;
-font-weight:bold;
-color:#d4af37;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-font-size:14px;
-}
-
-/* HERO */
-.hero{
-padding:100px 60px;
-background:linear-gradient(to right,#07141d,#0c2a3b);
-}
-
-.hero h1{
-font-size:42px;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:18px;
-color:#c7d0d6;
-max-width:700px;
-}
-
-.buttons{
-margin-top:35px;
-}
-
-.btn{
-padding:15px 30px;
-text-decoration:none;
-display:inline-block;
-margin-right:15px;
-border-radius:4px;
-font-size:16px;
-}
-
-.primary{
-background:#d4af37;
-color:black;
-}
-
-.secondary{
-border:1px solid #d4af37;
-color:#d4af37;
-}
-
-/* PRICE SECTION */
-.price-section{
-padding:60px;
-}
-
-.price-title{
-color:#d4af37;
-margin-bottom:25px;
-}
-
-.price-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:30px;
-}
-
-.price-box{
-background:#041018;
-padding:25px;
-border-radius:8px;
-}
-
-/* NEWS SECTION */
-.news-section{
-padding:60px;
-background:#041018;
-}
-
-.news-title{
-color:#d4af37;
-margin-bottom:30px;
-}
-
-.news-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
-}
-
-.news-box{
-background:#07141d;
-padding:20px;
-border-radius:8px;
-}
-
-.news-box h3{
-color:#d4af37;
-}
-
-/* FOOTER */
-footer{
-background:#020b11;
-padding:40px;
-text-align:center;
-color:#8fa3ad;
-margin-top:80px;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<div class="logo">PetroTrade Global</div>
-
-<nav>
-<a href="index.html">Home</a>
-<a href="find-sellers.html">Find Sellers</a>
-<a href="buyer-request.html">Buyer Request</a>
-<a href="seller-registration.html">Register as Seller</a>
-<a href="login.html">Login</a>
-</nav>
-</header>
-
-<section class="hero">
-<h1>Global Platform for Crude Oil & Petroleum Trading</h1>
-
-<p>PetroTrade Global connects verified buyers and sellers of crude oil, diesel EN590, Jet Fuel A1 and LNG worldwide.</p>
-
-<div class="buttons">
-<a href="buyer-request.html" class="btn primary">Request Petroleum Products</a>
-<a href="seller-registration.html" class="btn secondary">Register as Seller</a>
-</div>
-</section>
-
-<!-- MARKET PRICES -->
-<section class="price-section">
-
-<h2 class="price-title">Global Petroleum & Commodity Market Prices</h2>
-
-<div class="price-grid">
-
-<div class="price-box">
-<h3>Brent Crude Oil</h3>
-<div id="brent_chart"></div>
+    <button onclick="saveRequest()">Send Request</button>
 </div>
 
-<div class="price-box">
-<h3>WTI Crude Oil</h3>
-<div id="wti_chart"></div>
+<!-- DASHBOARD -->
+<div id="dashboardPage" class="dashboard" style="display:none;">
+    <h2>Dashboard</h2>
+    <div id="requests"></div>
 </div>
-
-<div class="price-box">
-<h3>Diesel EN590 (Global Market Price)</h3>
-<div id="diesel_chart"></div>
-</div>
-
-<div class="price-box">
-<h3>Jet Fuel A1 (Aviation Fuel Market Price)</h3>
-<div id="jet_chart"></div>
-</div>
-
-<div class="price-box">
-<h3>LNG Market Price (Natural Gas Global Index)</h3>
-<div id="lng_chart"></div>
-</div>
-
-<div class="price-box">
-<h3>Gold Market Price</h3>
-<div id="gold_chart"></div>
-</div>
-
-</div>
-
-</section>
-
-<!-- TRADINGVIEW SCRIPT -->
-<script src="https://s3.tradingview.com/tv.js"></script>
 
 <script>
-new TradingView.widget({
-"width": "100%",
-"height": 280,
-"symbol": "TVC:UKOIL",
-"interval": "D",
-"theme": "dark",
-"style": "1",
-"container_id": "brent_chart"
-});
 
-new TradingView.widget({
-"width": "100%",
-"height": 280,
-"symbol": "TVC:USOIL",
-"interval": "D",
-"theme": "dark",
-"style": "1",
-"container_id": "wti_chart"
-});
+function showPage(page) {
+    document.getElementById('loginPage').style.display = 'none';
+    document.getElementById('buyerPage').style.display = 'none';
+    document.getElementById('dashboardPage').style.display = 'none';
 
-new TradingView.widget({
-"width": "100%",
-"height": 280,
-"symbol": "NYMEX:HO1!",
-"interval": "D",
-"theme": "dark",
-"style": "1",
-"container_id": "diesel_chart"
-});
+    document.getElementById(page).style.display = 'block';
+}
 
-new TradingView.widget({
-"width": "100%",
-"height": 280,
-"symbol": "NYMEX:HO1!",
-"interval": "D",
-"theme": "dark",
-"style": "1",
-"container_id": "jet_chart"
-});
+function showRegister() {
+    document.getElementById('registerSection').style.display = 'block';
+}
 
-new TradingView.widget({
-"width": "100%",
-"height": 280,
-"symbol": "NYMEX:NG1!",
-"interval": "D",
-"theme": "dark",
-"style": "1",
-"container_id": "lng_chart"
-});
+// REGISTER USER
+function registerUser() {
+    const user = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value
+    };
 
-new TradingView.widget({
-"width": "100%",
-"height": 280,
-"symbol": "OANDA:XAUUSD",
-"interval": "D",
-"theme": "dark",
-"style": "1",
-"container_id": "gold_chart"
-});
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    users.push(user);
+    localStorage.setItem('users', JSON.stringify(users));
+
+    alert('Account created successfully!');
+}
+
+// LOGIN USER
+function loginUser() {
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+
+    const validUser = users.find(u => u.email === email && u.password === password);
+
+    if(validUser) {
+        alert('Login successful');
+        showPage('dashboardPage');
+        loadRequests();
+    } else {
+        alert('Wrong email or password');
+    }
+}
+
+// SAVE BUYER REQUEST
+function saveRequest() {
+    const request = {
+        company: document.getElementById('company').value,
+        country: document.getElementById('country').value,
+        product: document.getElementById('product').value,
+        quantity: document.getElementById('quantity').value,
+        email: document.getElementById('buyerEmail').value,
+        message: document.getElementById('message').value
+    };
+
+    let requests = JSON.parse(localStorage.getItem('buyerRequests')) || [];
+    requests.push(request);
+    localStorage.setItem('buyerRequests', JSON.stringify(requests));
+
+    alert('Request sent successfully');
+}
+
+// LOAD REQUESTS IN DASHBOARD
+function loadRequests() {
+    let requests = JSON.parse(localStorage.getItem('buyerRequests')) || [];
+    const container = document.getElementById('requests');
+    container.innerHTML = '';
+
+    requests.forEach(r => {
+        container.innerHTML += `
+        <div class="card">
+            <h3>${r.company}</h3>
+            <p><b>Country:</b> ${r.country}</p>
+            <p><b>Product:</b> ${r.product}</p>
+            <p><b>Quantity:</b> ${r.quantity} MT</p>
+            <p><b>Email:</b> ${r.email}</p>
+            <p>${r.message}</p>
+        </div>`;
+    });
+}
+
 </script>
-
-<!-- MARKET NEWS -->
-<section class="news-section">
-
-<h2 class="news-title">Latest Oil & Energy Market News</h2>
-
-<div class="news-grid">
-
-<div class="news-box">
-<h3>Global oil prices rising again</h3>
-<p>Energy markets are seeing strong movement due to global demand and supply disruptions in several regions.</p>
-</div>
-
-<div class="news-box">
-<h3>Diesel demand increasing worldwide</h3>
-<p>Diesel EN590 demand is growing, especially in Europe and Asia, due to transportation and industrial usage.</p>
-</div>
-
-<div class="news-box">
-<h3>LNG market under pressure</h3>
-<p>Global LNG demand is increasing while supply remains limited, pushing long-term contracts higher.</p>
-</div>
-
-</div>
-
-</section>
-
-<footer>
-PetroTrade Global © 2026 | International Petroleum Trading Platform
-</footer>
 
 </body>
 </html>
