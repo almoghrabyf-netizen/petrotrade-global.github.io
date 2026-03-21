@@ -1,93 +1,82 @@
 <!DOCTYPE html>
+document.getElementById('login').style.display='none';
+document.getElementById('buyer').style.display='none';
+document.getElementById('dashboard').style.display='none';
 
-    <input type="email" id="loginEmail" placeholder="Email">
-    <input type="password" id="loginPassword" placeholder="Password">
-
-    <button onclick="loginUser()">Login</button>
-
-    <div class="switch" onclick="showRegister()">Create new account</div>
-
-    <!-- CREATE ACCOUNT -->
-    <div id="registerSection" style="display:none;">
-        <input type="text" id="name" placeholder="Full Name">
-        <input type="email" id="email" placeholder="Email">
-        <input type="password" id="password" placeholder="Password">
-
-        <button onclick="registerUser()">Create Account</button>
-    </div>
-</div>
-
-<!-- BUYER REQUEST PAGE -->
-<div id="buyerPage" class="container" style="display:none;">
-    <h2>Buyer Request Form</h2>
-
-    <input type="text" id="company" placeholder="Company Name">
-
-    <select id="country">
-        <option>United Arab Emirates</option>
-        <option>Saudi Arabia</option>
-        <option>Lebanon</option>
-        <option>Turkey</option>
-    </select>
-
-    <select id="product">
-        <option>Crude Oil</option>
-        <option>Diesel EN590</option>
-        <option>Jet Fuel A1</option>
-        <option>LPG</option>
-    </select>
-
-    <input type="number" id="quantity" placeholder="Quantity (MT)">
-    <input type="email" id="buyerEmail" placeholder="Email">
-
-    <textarea id="message" placeholder="Message"></textarea>
-
-    <button onclick="saveRequest()">Send Request</button>
-</div>
-
-<!-- DASHBOARD -->
-<div id="dashboardPage" class="dashboard" style="display:none;">
-    <h2>Dashboard</h2>
-    <div id="requests"></div>
-</div>
-
-<script>
-
-function showPage(page) {
-    document.getElementById('loginPage').style.display = 'none';
-    document.getElementById('buyerPage').style.display = 'none';
-    document.getElementById('dashboardPage').style.display = 'none';
-
-    document.getElementById(page).style.display = 'block';
+document.getElementById(page).style.display='block';
 }
 
-function showRegister() {
-    document.getElementById('registerSection').style.display = 'block';
+function showRegister(){
+document.getElementById('registerBox').style.display='block';
 }
 
-// REGISTER USER
-function registerUser() {
-    const user = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        password: document.getElementById('password').value
-    };
+// REGISTER
+function register(){
+let users=JSON.parse(localStorage.getItem('users'))||[];
 
-    let users = JSON.parse(localStorage.getItem('users')) || [];
-    users.push(user);
-    localStorage.setItem('users', JSON.stringify(users));
+users.push({
+name:document.getElementById('regName').value,
+email:document.getElementById('regEmail').value,
+pass:document.getElementById('regPass').value
+});
 
-    alert('Account created successfully!');
+localStorage.setItem('users',JSON.stringify(users));
+alert('Account created successfully');
 }
 
-// LOGIN USER
-function loginUser() {
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
+// LOGIN
+function login(){
+let users=JSON.parse(localStorage.getItem('users'))||[];
 
-    let users = JSON.parse(localStorage.getItem('users')) || [];
+let email=document.getElementById('loginEmail').value;
+let pass=document.getElementById('loginPass').value;
 
-    const validUser = users.find(u => u.email === email && u.password === password);
+let found=users.find(u=>u.email===email && u.pass===pass);
 
-    if(validUser) {
-       
+if(found){
+alert('Login successful');
+show('dashboard');
+loadRequests();
+}else{
+alert('Wrong email or password');
+}
+}
+
+// SAVE REQUEST
+function saveRequest(){
+let requests=JSON.parse(localStorage.getItem('requests'))||[];
+
+requests.push({
+company:document.getElementById('company').value,
+product:document.getElementById('product').value,
+quantity:document.getElementById('quantity').value,
+email:document.getElementById('email').value,
+message:document.getElementById('message').value
+});
+
+localStorage.setItem('requests',JSON.stringify(requests));
+alert('Request saved successfully');
+}
+
+// LOAD REQUESTS
+function loadRequests(){
+let requests=JSON.parse(localStorage.getItem('requests'))||[];
+let box=document.getElementById('list');
+box.innerHTML='';
+
+requests.forEach(r=>{
+box.innerHTML+=`
+<div class="card">
+<h3>${r.company}</h3>
+<p>${r.product}</p>
+<p>${r.quantity} MT</p>
+<p>${r.email}</p>
+<p>${r.message}</p>
+</div>`;
+});
+}
+
+</script>
+
+</body>
+</html>
