@@ -1,56 +1,214 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>PetroTrade Global</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PetroTrade - Oil Trading Platform</title>
 
 <style>
 body{
+    font-family: Arial, Helvetica, sans-serif;
     margin:0;
-    font-family:Arial;
-    background:#071c26;
+    background:#f4f4f4;
+}
+
+/* HEADER */
+header{
+    background:#111;
     color:white;
+    padding:15px;
+    text-align:center;
 }
-.box{
-    width:400px;
-    margin:100px auto;
-    background:#081f2b;
-    padding:30px;
-    border-radius:10px;
+
+/* NAVIGATION */
+nav{
+    background:#222;
+    text-align:center;
+    padding:10px;
 }
-input,button{
+
+nav button{
+    padding:10px 15px;
+    margin:5px;
+    border:none;
+    background:#ff9800;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+nav button:hover{
+    background:#e68900;
+}
+
+/* SECTIONS */
+.section{
+    display:none;
+    padding:20px;
+}
+
+.active{
+    display:block;
+}
+
+/* FORMS */
+form{
+    background:white;
+    padding:20px;
+    max-width:500px;
+    margin:auto;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+}
+
+input, select, textarea{
     width:100%;
-    padding:12px;
+    padding:10px;
     margin-top:10px;
 }
-button{
-    background:#d4af37;
-    border:none;
+
+button.submit{
+    background:#28a745;
+    color:white;
+    margin-top:15px;
+}
+
+/* MARKET PANEL */
+.market{
+    background:white;
+    max-width:600px;
+    margin:20px auto;
+    padding:20px;
+    text-align:center;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+}
+
+.price{
+    font-size:20px;
+    margin:10px 0;
+    font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<div class="box">
-<h2>Create Account</h2>
+<header>
+<h1>PetroTrade Platform</h1>
+<p>Buy & Sell Petroleum Products Worldwide</p>
+</header>
 
-<input id="email" placeholder="Email">
-<input id="pass" type="password" placeholder="Password">
+<nav>
+<button onclick="showSection('login')">Login</button>
+<button onclick="showSection('buyer')">Buyer Request</button>
+<button onclick="showSection('seller')">Register as Seller</button>
+<button onclick="showSection('market')">Market Prices</button>
+</nav>
 
-<button onclick="saveUser()">Create Account</button>
+<!-- LOGIN + CREATE ACCOUNT -->
+<div id="login" class="section active">
+<form>
+<h2>Login</h2>
+
+<input type="text" placeholder="Username" required>
+<input type="password" placeholder="Password" required>
+
+<button class="submit" type="submit">Login</button>
+
+<hr>
+
+<h3>Create Account</h3>
+
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email" required>
+<input type="text" placeholder="Username" required>
+<input type="password" placeholder="Password" required>
+
+<button class="submit" type="submit">Create Account</button>
+</form>
+</div>
+
+<!-- BUYER REQUEST -->
+<div id="buyer" class="section">
+<form>
+<h2>Buyer Request Form</h2>
+
+<input type="text" placeholder="Company Name" required>
+<input type="text" placeholder="Country" required>
+
+<select required>
+<option value="">Select Product</option>
+<option>Diesel EN590</option>
+<option>Jet Fuel</option>
+<option>Crude Oil</option>
+<option>LPG</option>
+<option>Gasoline</option>
+</select>
+
+<input type="text" placeholder="Quantity (MT)" required>
+
+<textarea placeholder="Delivery Port / Details"></textarea>
+
+<button class="submit">Submit Request</button>
+</form>
+</div>
+
+<!-- SELLER REGISTRATION -->
+<div id="seller" class="section">
+<form>
+<h2>Register as Seller</h2>
+
+<input type="text" placeholder="Company Name" required>
+<input type="text" placeholder="Country" required>
+<input type="text" placeholder="Contact Person" required>
+<input type="email" placeholder="Email" required>
+
+<select required>
+<option value="">Product You Sell</option>
+<option>Diesel EN590</option>
+<option>Jet Fuel</option>
+<option>Crude Oil</option>
+<option>LPG</option>
+<option>Gasoline</option>
+</select>
+
+<textarea placeholder="Company Details"></textarea>
+
+<button class="submit">Register</button>
+</form>
+</div>
+
+<!-- MARKET PRICES -->
+<div id="market" class="section">
+<div class="market">
+<h2>Live Market Prices</h2>
+
+<div class="price">Gold Price: <span id="gold">Loading...</span></div>
+<div class="price">Diesel EN590 Price: <span id="diesel">Loading...</span></div>
+
+<button onclick="updatePrices()">Refresh Prices</button>
+</div>
 </div>
 
 <script>
 
-function saveUser(){
-    let email=document.getElementById("email").value;
-    let pass=document.getElementById("pass").value;
-
-    localStorage.setItem("email",email);
-    localStorage.setItem("pass",pass);
-
-    alert("Account saved successfully!");
+/* NAVIGATION FUNCTION */
+function showSection(section){
+    document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
+    document.getElementById(section).classList.add("active");
 }
+
+/* RANDOM PRICE SIMULATION (until we connect real API later) */
+function updatePrices(){
+
+    let gold = (2300 + Math.random()*50).toFixed(2);
+    let diesel = (780 + Math.random()*40).toFixed(2);
+
+    document.getElementById("gold").innerText = "$ " + gold + " / oz";
+    document.getElementById("diesel").innerText = "$ " + diesel + " / MT";
+}
+
+/* AUTO LOAD PRICES */
+updatePrices();
 
 </script>
 
