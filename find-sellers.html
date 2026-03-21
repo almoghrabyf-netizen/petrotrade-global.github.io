@@ -2,62 +2,29 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Find Sellers - PetroTrade Global</title>
+<title>Find Sellers</title>
 
 <style>
-body{
-margin:0;
-font-family:Arial;
-background:#07141d;
-color:white;
-}
+body{margin:0;font-family:Arial;background:#07141d;color:white;}
 
-/* HEADER */
 header{
 background:#041018;
 padding:20px 60px;
-display:flex;
-justify-content:space-between;
-align-items:center;
 border-bottom:1px solid #1c3c50;
 }
 
-.logo{
-font-size:24px;
-font-weight:bold;
-color:#d4af37;
-}
+.logo{color:#d4af37;font-size:24px;font-weight:bold;}
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:30px;
-}
+.filter{padding:40px 60px;}
 
-/* FILTER */
-.filter{
-padding:40px 60px;
-background:#041018;
-}
-
-select{
+select,button{
 padding:12px;
-width:250px;
-margin-right:20px;
+margin-right:15px;
 background:#07141d;
 border:1px solid #1c3c50;
 color:white;
 }
 
-button{
-padding:12px 25px;
-background:#d4af37;
-border:none;
-cursor:pointer;
-}
-
-/* CARDS */
 .sellers{
 padding:40px 60px;
 display:grid;
@@ -71,16 +38,7 @@ padding:25px;
 border-radius:8px;
 }
 
-.card h3{
-color:#d4af37;
-}
-
-footer{
-background:#020b11;
-padding:30px;
-text-align:center;
-margin-top:60px;
-}
+.card h3{color:#d4af37;}
 </style>
 </head>
 
@@ -88,98 +46,55 @@ margin-top:60px;
 
 <header>
 <div class="logo">PetroTrade Global</div>
-
-<nav>
-<a href="index.html">Home</a>
-<a href="find-sellers.html">Find Sellers</a>
-<a href="buyer-request.html">Buyer Request</a>
-<a href="seller-registration.html">Register as Seller</a>
-</nav>
 </header>
 
-<section class="filter">
-
-<h2>Find Verified Petroleum Suppliers</h2>
+<div class="filter">
 
 <select id="country">
 <option value="all">All Countries</option>
-<option value="uae">United Arab Emirates</option>
+<option value="uae">UAE</option>
 <option value="saudi">Saudi Arabia</option>
 <option value="nigeria">Nigeria</option>
-<option value="usa">United States</option>
 </select>
 
-<select id="product">
-<option value="all">All Products</option>
-<option value="crude">Crude Oil</option>
-<option value="diesel">Diesel EN590</option>
-<option value="jet">Jet Fuel A1</option>
-</select>
+<button onclick="filter()">Search</button>
 
-<button onclick="filterSellers()">Search</button>
-
-</section>
-
-<section class="sellers">
-
-<div class="card" data-country="uae" data-product="diesel">
-<h3>Al Noor Petroleum Trading</h3>
-<p>Country: United Arab Emirates</p>
-<p>Product: Diesel EN590</p>
-<p>Available: 80,000 MT per month</p>
 </div>
 
-<div class="card" data-country="nigeria" data-product="crude">
+<div class="sellers">
+
+<div class="card" data-country="uae">
+<h3>Al Noor Petroleum Trading</h3>
+<p>Country: UAE</p>
+<p>Product: Diesel EN590</p>
+</div>
+
+<div class="card" data-country="nigeria">
 <h3>Global Energy Export Ltd</h3>
 <p>Country: Nigeria</p>
 <p>Product: Crude Oil</p>
-<p>Available: 120,000 MT per month</p>
 </div>
 
-<div class="card" data-country="saudi" data-product="jet">
+<div class="card" data-country="saudi">
 <h3>Arabian Fuel Supply</h3>
 <p>Country: Saudi Arabia</p>
 <p>Product: Jet Fuel A1</p>
-<p>Available: 60,000 MT per month</p>
 </div>
 
-<div class="card" data-country="usa" data-product="diesel">
-<h3>US Fuel Trading Corp</h3>
-<p>Country: United States</p>
-<p>Product: Diesel EN590</p>
-<p>Available: 50,000 MT per month</p>
 </div>
-
-</section>
-
-<footer>
-PetroTrade Global © 2026 | International Petroleum Trading Platform
-</footer>
 
 <script>
-function filterSellers() {
+function filter(){
+let c=document.getElementById("country").value;
+let cards=document.querySelectorAll(".card");
 
-let country = document.getElementById("country").value;
-let product = document.getElementById("product").value;
-
-let cards = document.querySelectorAll(".card");
-
-cards.forEach(card => {
-
-let cardCountry = card.getAttribute("data-country");
-let cardProduct = card.getAttribute("data-product");
-
-if(
-(country === "all" || country === cardCountry) &&
-(product === "all" || product === cardProduct)
-){
-card.style.display = "block";
+cards.forEach(card=>{
+if(c==="all"||card.getAttribute("data-country")===c){
+card.style.display="block";
 }else{
-card.style.display = "none";
+card.style.display="none";
 }
-
 });
-
 }
 </script>
 
