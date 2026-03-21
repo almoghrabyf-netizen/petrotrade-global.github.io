@@ -98,6 +98,33 @@ padding:25px;
 border-radius:8px;
 }
 
+/* NEWS SECTION */
+.news-section{
+padding:60px;
+background:#041018;
+}
+
+.news-title{
+color:#d4af37;
+margin-bottom:30px;
+}
+
+.news-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.news-box{
+background:#07141d;
+padding:20px;
+border-radius:8px;
+}
+
+.news-box h3{
+color:#d4af37;
+}
+
 /* FOOTER */
 footer{
 background:#020b11;
@@ -137,32 +164,33 @@ margin-top:80px;
 <!-- MARKET PRICES -->
 <section class="price-section">
 
-<h2 class="price-title">Global Energy & Commodity Market Prices</h2>
+<h2 class="price-title">Global Petroleum Market Prices</h2>
 
 <div class="price-grid">
 
-<!-- BRENT -->
 <div class="price-box">
-<h3 style="color:#d4af37;">Brent Crude Oil</h3>
+<h3>Brent Crude Oil</h3>
 <div id="brent_chart"></div>
 </div>
 
-<!-- WTI -->
 <div class="price-box">
-<h3 style="color:#d4af37;">WTI Crude Oil</h3>
+<h3>WTI Crude Oil</h3>
 <div id="wti_chart"></div>
 </div>
 
-<!-- NATURAL GAS -->
 <div class="price-box">
-<h3 style="color:#d4af37;">Natural Gas (LNG Market Reference)</h3>
-<div id="gas_chart"></div>
+<h3>Diesel EN590 (Global Market Price)</h3>
+<div id="diesel_chart"></div>
 </div>
 
-<!-- GOLD -->
 <div class="price-box">
-<h3 style="color:#d4af37;">Gold Market Price</h3>
-<div id="gold_chart"></div>
+<h3>Jet Fuel A1 (Aviation Fuel Market Price)</h3>
+<div id="jet_chart"></div>
+</div>
+
+<div class="price-box">
+<h3>LNG Market Price (Natural Gas Global Index)</h3>
+<div id="lng_chart"></div>
 </div>
 
 </div>
@@ -196,23 +224,59 @@ new TradingView.widget({
 new TradingView.widget({
 "width": "100%",
 "height": 280,
-"symbol": "NYMEX:NG1!",
+"symbol": "NYMEX:HO1!",
 "interval": "D",
 "theme": "dark",
 "style": "1",
-"container_id": "gas_chart"
+"container_id": "diesel_chart"
 });
 
 new TradingView.widget({
 "width": "100%",
 "height": 280,
-"symbol": "OANDA:XAUUSD",
+"symbol": "NYMEX:HO1!",
 "interval": "D",
 "theme": "dark",
 "style": "1",
-"container_id": "gold_chart"
+"container_id": "jet_chart"
+});
+
+new TradingView.widget({
+"width": "100%",
+"height": 280,
+"symbol": "NYMEX:NG1!",
+"interval": "D",
+"theme": "dark",
+"style": "1",
+"container_id": "lng_chart"
 });
 </script>
+
+<!-- MARKET NEWS -->
+<section class="news-section">
+
+<h2 class="news-title">Latest Oil & Energy Market News</h2>
+
+<div class="news-grid">
+
+<div class="news-box">
+<h3>Global oil prices rising again</h3>
+<p>Energy markets are seeing strong movement due to global demand and supply disruptions in several regions.</p>
+</div>
+
+<div class="news-box">
+<h3>Diesel demand increasing worldwide</h3>
+<p>Diesel EN590 demand is growing, especially in Europe and Asia, due to transportation and industrial usage.</p>
+</div>
+
+<div class="news-box">
+<h3>LNG market under pressure</h3>
+<p>Global LNG demand is increasing while supply remains limited, pushing long-term contracts higher.</p>
+</div>
+
+</div>
+
+</section>
 
 <footer>
 PetroTrade Global © 2026 | International Petroleum Trading Platform
