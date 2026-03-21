@@ -55,12 +55,14 @@ nav a {
     margin-top: 30px;
 }
 
-button {
-    padding: 14px 28px;
+.btn {
+    padding: 15px 30px;
     margin-right: 15px;
     border: none;
-    font-size: 15px;
+    font-size: 16px;
     cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .btn-primary {
@@ -101,6 +103,7 @@ input, select {
     background-color: #d4af37;
     color: black;
     font-size: 16px;
+    border: none;
 }
 
 .features {
@@ -125,7 +128,6 @@ footer {
     text-align: center;
     color: #9aa5ab;
 }
-
 </style>
 </head>
 
@@ -134,24 +136,27 @@ footer {
 <header>
 <div class="logo">PetroTrade Global</div>
 <nav>
-<a href="#">Home</a>
+<a href="index.html">Home</a>
 <a href="#">Find Sellers</a>
-<a href="#">Find Buyers</a>
+<a href="#">Register as Seller</a>
 <a href="#">Login</a>
-<a href="#">Register</a>
 </nav>
 </header>
 
 <section class="hero">
 <h1>The International Platform for Crude Oil & Petroleum Trading</h1>
-<p>PetroTrade Global connects verified buyers and sellers of crude oil, diesel, jet fuel, LNG and petroleum products worldwide. Secure communication, real offers, and professional negotiations in one platform.</p>
+<p>PetroTrade Global connects verified buyers and sellers of crude oil, diesel, jet fuel, LNG and petroleum products worldwide.</p>
 
 <div class="buttons">
-<a href="buyer-request.html">
-<button class="btn-primary">Request Petroleum Products</button>
+
+<a href="buyer-request.html" class="btn btn-primary">
+Request Petroleum Products
 </a>
 
-<button class="btn-secondary">Register as Seller</button>
+<a href="#" class="btn btn-secondary">
+Register as Seller
+</a>
+
 </div>
 </section>
 
@@ -198,7 +203,7 @@ footer {
 
 <div class="feature">
 <h3>Secure Negotiation</h3>
-<p>Buyers and sellers communicate safely inside the platform before closing the deal.</p>
+<p>Buyers and sellers communicate safely before closing the deal.</p>
 </div>
 
 </section>
