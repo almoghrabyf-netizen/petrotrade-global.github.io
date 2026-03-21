@@ -6,89 +6,64 @@
 <title>Buyer Request - PetroTrade Global</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #0b1d2a;
-    color: white;
+body{
+margin:0;
+font-family:Arial;
+background:#07141d;
+color:white;
 }
 
-header {
-    background-color: #081620;
-    padding: 20px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #1e3a4d;
+header{
+background:#041018;
+padding:20px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #1c3c50;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #d4af37;
+.logo{
+font-size:24px;
+color:#d4af37;
+font-weight:bold;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 30px;
-    font-size: 14px;
+.form{
+max-width:700px;
+margin:60px auto;
+background:#041018;
+padding:40px;
+border-radius:8px;
 }
 
-.form-section {
-    max-width: 800px;
-    margin: 60px auto;
-    background-color: #081620;
-    padding: 40px;
-    border-radius: 8px;
+label{
+display:block;
+margin-top:20px;
 }
 
-h1 {
-    margin-bottom: 10px;
+input,select,textarea{
+width:100%;
+padding:12px;
+margin-top:10px;
+background:#07141d;
+border:1px solid #1c3c50;
+color:white;
 }
 
-p {
-    color: #cfd8dc;
-    margin-bottom: 30px;
+button{
+margin-top:30px;
+width:100%;
+padding:15px;
+background:#d4af37;
+border:none;
+font-size:16px;
 }
 
-label {
-    display: block;
-    margin-top: 20px;
-    margin-bottom: 8px;
-    font-size: 14px;
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    background-color: #0b1d2a;
-    border: 1px solid #1e3a4d;
-    color: white;
-    border-radius: 4px;
-}
-
-textarea {
-    height: 120px;
-}
-
-button {
-    margin-top: 30px;
-    width: 100%;
-    padding: 15px;
-    background-color: #d4af37;
-    color: black;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-footer {
-    background-color: #050e14;
-    padding: 30px;
-    text-align: center;
-    color: #9aa5ab;
-    margin-top: 60px;
+footer{
+background:#020b11;
+padding:30px;
+text-align:center;
+margin-top:60px;
 }
 </style>
 </head>
@@ -97,66 +72,46 @@ footer {
 
 <header>
 <div class="logo">PetroTrade Global</div>
-<nav>
-<a href="index.html">Home</a>
-<a href="#">Find Sellers</a>
-<a href="#">Register as Seller</a>
-<a href="#">Login</a>
-</nav>
 </header>
 
-<section class="form-section">
+<div class="form">
+<h2>Buyer Request Form</h2>
 
-<h1>Buyer Request Form</h1>
-<p>Submit your petroleum product request and our team will connect you with verified international suppliers.</p>
+<label>Company Name</label>
+<input type="text">
 
-<label>Product Required</label>
-<select>
-<option>Crude Oil</option>
-<option>Diesel EN590</option>
-<option>Jet Fuel A1</option>
-<option>LNG</option>
-<option>LPG</option>
-<option>Other Petroleum Product</option>
-</select>
-
-<label>Quantity (MT)</label>
-<input type="text" placeholder="Example: 50,000 MT">
-
-<label>Country of Delivery</label>
+<label>Country</label>
 <select>
 <option>United Arab Emirates</option>
 <option>Saudi Arabia</option>
 <option>Qatar</option>
 <option>Kuwait</option>
-<option>United States</option>
-<option>Nigeria</option>
 <option>Germany</option>
-<option>India</option>
-<option>China</option>
+<option>United States</option>
 </select>
 
-<label>Company Name</label>
-<input type="text" placeholder="Enter your company name">
+<label>Product Needed</label>
+<select>
+<option>Crude Oil</option>
+<option>Diesel EN590</option>
+<option>Jet Fuel A1</option>
+<option>LNG</option>
+</select>
 
-<label>Contact Person</label>
-<input type="text" placeholder="Full name">
+<label>Quantity (MT)</label>
+<input type="text">
 
-<label>Email Address</label>
-<input type="email" placeholder="example@company.com">
+<label>Email</label>
+<input type="email">
 
-<label>Phone Number</label>
-<input type="text" placeholder="+971 ...">
+<label>Message</label>
+<textarea></textarea>
 
-<label>Additional Details</label>
-<textarea placeholder="Write more details about your request (delivery terms, target price, contract duration, etc.)"></textarea>
-
-<button>Send Buyer Request</button>
-
-</section>
+<button>Send Request</button>
+</div>
 
 <footer>
-<p>PetroTrade Global © 2026 | International Petroleum Trading Platform</p>
+PetroTrade Global © 2026
 </footer>
 
 </body>
