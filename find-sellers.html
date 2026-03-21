@@ -13,6 +13,7 @@ background:#07141d;
 color:white;
 }
 
+/* HEADER */
 header{
 background:#041018;
 padding:20px 60px;
@@ -24,14 +25,36 @@ border-bottom:1px solid #1c3c50;
 
 .logo{
 font-size:24px;
-color:#d4af37;
 font-weight:bold;
+color:#d4af37;
 }
 
 nav a{
 color:white;
 text-decoration:none;
 margin-left:30px;
+}
+
+/* FILTER */
+.filter{
+padding:40px 60px;
+background:#041018;
+}
+
+select{
+padding:12px;
+width:250px;
+margin-right:20px;
+background:#07141d;
+border:1px solid #1c3c50;
+color:white;
+}
+
+button{
+padding:12px 25px;
+background:#d4af37;
+border:none;
+cursor:pointer;
 }
 
 /* CARDS */
@@ -50,15 +73,6 @@ border-radius:8px;
 
 .card h3{
 color:#d4af37;
-}
-
-button{
-margin-top:15px;
-padding:12px;
-width:100%;
-background:#d4af37;
-border:none;
-cursor:pointer;
 }
 
 footer{
@@ -83,37 +97,91 @@ margin-top:60px;
 </nav>
 </header>
 
+<section class="filter">
+
+<h2>Find Verified Petroleum Suppliers</h2>
+
+<select id="country">
+<option value="all">All Countries</option>
+<option value="uae">United Arab Emirates</option>
+<option value="saudi">Saudi Arabia</option>
+<option value="nigeria">Nigeria</option>
+<option value="usa">United States</option>
+</select>
+
+<select id="product">
+<option value="all">All Products</option>
+<option value="crude">Crude Oil</option>
+<option value="diesel">Diesel EN590</option>
+<option value="jet">Jet Fuel A1</option>
+</select>
+
+<button onclick="filterSellers()">Search</button>
+
+</section>
+
 <section class="sellers">
 
-<div class="card">
+<div class="card" data-country="uae" data-product="diesel">
 <h3>Al Noor Petroleum Trading</h3>
 <p>Country: United Arab Emirates</p>
 <p>Product: Diesel EN590</p>
-<p>Quantity: 80,000 MT / month</p>
-<button>Contact Seller</button>
+<p>Available: 80,000 MT per month</p>
 </div>
 
-<div class="card">
+<div class="card" data-country="nigeria" data-product="crude">
 <h3>Global Energy Export Ltd</h3>
 <p>Country: Nigeria</p>
 <p>Product: Crude Oil</p>
-<p>Quantity: 120,000 MT / month</p>
-<button>Contact Seller</button>
+<p>Available: 120,000 MT per month</p>
 </div>
 
-<div class="card">
+<div class="card" data-country="saudi" data-product="jet">
 <h3>Arabian Fuel Supply</h3>
 <p>Country: Saudi Arabia</p>
 <p>Product: Jet Fuel A1</p>
-<p>Quantity: 60,000 MT / month</p>
-<button>Contact Seller</button>
+<p>Available: 60,000 MT per month</p>
+</div>
+
+<div class="card" data-country="usa" data-product="diesel">
+<h3>US Fuel Trading Corp</h3>
+<p>Country: United States</p>
+<p>Product: Diesel EN590</p>
+<p>Available: 50,000 MT per month</p>
 </div>
 
 </section>
 
 <footer>
-PetroTrade Global © 2026
+PetroTrade Global © 2026 | International Petroleum Trading Platform
 </footer>
+
+<script>
+function filterSellers() {
+
+let country = document.getElementById("country").value;
+let product = document.getElementById("product").value;
+
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+let cardCountry = card.getAttribute("data-country");
+let cardProduct = card.getAttribute("data-product");
+
+if(
+(country === "all" || country === cardCountry) &&
+(product === "all" || product === cardProduct)
+){
+card.style.display = "block";
+}else{
+card.style.display = "none";
+}
+
+});
+
+}
+</script>
 
 </body>
 </html>
