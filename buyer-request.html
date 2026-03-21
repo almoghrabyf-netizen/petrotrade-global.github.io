@@ -7,11 +7,57 @@
 
 <style>
 body{margin:0;font-family:Arial;background:#07141d;color:white;}
-header{background:#041018;padding:20px 60px;border-bottom:1px solid #1c3c50;}
-.logo{color:#d4af37;font-size:24px;font-weight:bold;}
-.form{max-width:700px;margin:60px auto;background:#041018;padding:40px;border-radius:8px;}
-input,select,textarea{width:100%;padding:12px;margin-top:15px;background:#07141d;border:1px solid #1c3c50;color:white;}
-button{margin-top:25px;width:100%;padding:15px;background:#d4af37;border:none;}
+
+header{
+background:#041018;
+padding:20px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #1c3c50;
+}
+
+.logo{font-size:24px;color:#d4af37;font-weight:bold;}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-size:14px;
+}
+
+.form{
+max-width:700px;
+margin:60px auto;
+background:#041018;
+padding:40px;
+border-radius:8px;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+margin-top:15px;
+background:#07141d;
+border:1px solid #1c3c50;
+color:white;
+}
+
+button{
+margin-top:25px;
+width:100%;
+padding:15px;
+background:#d4af37;
+border:none;
+font-size:16px;
+}
+
+footer{
+background:#020b11;
+padding:30px;
+text-align:center;
+margin-top:60px;
+}
 </style>
 </head>
 
@@ -19,17 +65,25 @@ button{margin-top:25px;width:100%;padding:15px;background:#d4af37;border:none;}
 
 <header>
 <div class="logo">PetroTrade Global</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="find-sellers.html">Find Sellers</a>
+<a href="buyer-request.html">Buyer Request</a>
+<a href="seller-registration.html">Register as Seller</a>
+<a href="login.html">Login</a>
+</nav>
 </header>
 
 <div class="form">
+
 <h2>Buyer Request Form</h2>
 
 <input type="text" placeholder="Company Name">
 <select>
 <option>United Arab Emirates</option>
 <option>Saudi Arabia</option>
-<option>Qatar</option>
-<option>Kuwait</option>
+<option>Nigeria</option>
 </select>
 
 <select>
@@ -43,7 +97,12 @@ button{margin-top:25px;width:100%;padding:15px;background:#d4af37;border:none;}
 <textarea placeholder="Message"></textarea>
 
 <button>Send Request</button>
+
 </div>
+
+<footer>
+PetroTrade Global © 2026
+</footer>
 
 </body>
 </html>
