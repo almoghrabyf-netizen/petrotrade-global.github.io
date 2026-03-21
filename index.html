@@ -1,5 +1,42 @@
 <!DOCTYPE html>
 
+    <input type="email" id="loginEmail" placeholder="Email">
+    <input type="password" id="loginPassword" placeholder="Password">
+
+    <button onclick="loginUser()">Login</button>
+
+    <div class="switch" onclick="showRegister()">Create new account</div>
+
+    <!-- CREATE ACCOUNT -->
+    <div id="registerSection" style="display:none;">
+        <input type="text" id="name" placeholder="Full Name">
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+
+        <button onclick="registerUser()">Create Account</button>
+    </div>
+</div>
+
+<!-- BUYER REQUEST PAGE -->
+<div id="buyerPage" class="container" style="display:none;">
+    <h2>Buyer Request Form</h2>
+
+    <input type="text" id="company" placeholder="Company Name">
+
+    <select id="country">
+        <option>United Arab Emirates</option>
+        <option>Saudi Arabia</option>
+        <option>Lebanon</option>
+        <option>Turkey</option>
+    </select>
+
+    <select id="product">
+        <option>Crude Oil</option>
+        <option>Diesel EN590</option>
+        <option>Jet Fuel A1</option>
+        <option>LPG</option>
+    </select>
+
     <input type="number" id="quantity" placeholder="Quantity (MT)">
     <input type="email" id="buyerEmail" placeholder="Email">
 
@@ -53,52 +90,4 @@ function loginUser() {
     const validUser = users.find(u => u.email === email && u.password === password);
 
     if(validUser) {
-        alert('Login successful');
-        showPage('dashboardPage');
-        loadRequests();
-    } else {
-        alert('Wrong email or password');
-    }
-}
-
-// SAVE BUYER REQUEST
-function saveRequest() {
-    const request = {
-        company: document.getElementById('company').value,
-        country: document.getElementById('country').value,
-        product: document.getElementById('product').value,
-        quantity: document.getElementById('quantity').value,
-        email: document.getElementById('buyerEmail').value,
-        message: document.getElementById('message').value
-    };
-
-    let requests = JSON.parse(localStorage.getItem('buyerRequests')) || [];
-    requests.push(request);
-    localStorage.setItem('buyerRequests', JSON.stringify(requests));
-
-    alert('Request sent successfully');
-}
-
-// LOAD REQUESTS IN DASHBOARD
-function loadRequests() {
-    let requests = JSON.parse(localStorage.getItem('buyerRequests')) || [];
-    const container = document.getElementById('requests');
-    container.innerHTML = '';
-
-    requests.forEach(r => {
-        container.innerHTML += `
-        <div class="card">
-            <h3>${r.company}</h3>
-            <p><b>Country:</b> ${r.country}</p>
-            <p><b>Product:</b> ${r.product}</p>
-            <p><b>Quantity:</b> ${r.quantity} MT</p>
-            <p><b>Email:</b> ${r.email}</p>
-            <p>${r.message}</p>
-        </div>`;
-    });
-}
-
-</script>
-
-</body>
-</html>
+       
