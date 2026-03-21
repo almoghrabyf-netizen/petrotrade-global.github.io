@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PetroTrade - Oil Trading Platform</title>
+<title>PetroTrade Platform</title>
 
 <style>
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial;
     margin:0;
     background:#f4f4f4;
 }
@@ -16,15 +16,15 @@ body{
 header{
     background:#111;
     color:white;
-    padding:15px;
     text-align:center;
+    padding:15px;
 }
 
-/* NAVIGATION */
+/* NAV */
 nav{
     background:#222;
-    text-align:center;
     padding:10px;
+    text-align:center;
 }
 
 nav button{
@@ -34,11 +34,6 @@ nav button{
     background:#ff9800;
     color:white;
     cursor:pointer;
-    font-weight:bold;
-}
-
-nav button:hover{
-    background:#e68900;
 }
 
 /* SECTIONS */
@@ -51,11 +46,11 @@ nav button:hover{
     display:block;
 }
 
-/* FORMS */
+/* FORM */
 form{
     background:white;
     padding:20px;
-    max-width:500px;
+    max-width:450px;
     margin:auto;
     box-shadow:0px 0px 10px rgba(0,0,0,0.2);
 }
@@ -72,20 +67,11 @@ button.submit{
     margin-top:15px;
 }
 
-/* MARKET PANEL */
-.market{
-    background:white;
-    max-width:600px;
-    margin:20px auto;
-    padding:20px;
+/* DASHBOARD */
+.dashboard{
     text-align:center;
-    box-shadow:0px 0px 10px rgba(0,0,0,0.2);
-}
-
-.price{
-    font-size:20px;
-    margin:10px 0;
-    font-weight:bold;
+    padding:30px;
+    font-size:22px;
 }
 </style>
 </head>
@@ -94,23 +80,22 @@ button.submit{
 
 <header>
 <h1>PetroTrade Platform</h1>
-<p>Buy & Sell Petroleum Products Worldwide</p>
 </header>
 
 <nav>
 <button onclick="showSection('login')">Login</button>
 <button onclick="showSection('buyer')">Buyer Request</button>
-<button onclick="showSection('seller')">Register as Seller</button>
-<button onclick="showSection('market')">Market Prices</button>
+<button onclick="showSection('seller')">Register Seller</button>
+<button onclick="showSection('dashboard')">Dashboard</button>
 </nav>
 
-<!-- LOGIN + CREATE ACCOUNT -->
+<!-- LOGIN -->
 <div id="login" class="section active">
-<form>
+<form id="loginForm">
 <h2>Login</h2>
 
-<input type="text" placeholder="Username" required>
-<input type="password" placeholder="Password" required>
+<input type="text" id="loginUser" placeholder="Username" required>
+<input type="password" id="loginPass" placeholder="Password" required>
 
 <button class="submit" type="submit">Login</button>
 
@@ -118,97 +103,96 @@ button.submit{
 
 <h3>Create Account</h3>
 
-<input type="text" placeholder="Full Name" required>
-<input type="email" placeholder="Email" required>
-<input type="text" placeholder="Username" required>
-<input type="password" placeholder="Password" required>
+<input type="text" id="regUser" placeholder="Username" required>
+<input type="password" id="regPass" placeholder="Password" required>
 
-<button class="submit" type="submit">Create Account</button>
+<button class="submit" type="button" onclick="register()">Create Account</button>
 </form>
 </div>
 
-<!-- BUYER REQUEST -->
+<!-- DASHBOARD -->
+<div id="dashboard" class="section">
+<div class="dashboard">
+<h2>Welcome to PetroTrade</h2>
+<p>You are now logged in successfully</p>
+</div>
+</div>
+
+<!-- BUYER -->
 <div id="buyer" class="section">
 <form>
-<h2>Buyer Request Form</h2>
-
-<input type="text" placeholder="Company Name" required>
-<input type="text" placeholder="Country" required>
-
-<select required>
-<option value="">Select Product</option>
+<h2>Buyer Request</h2>
+<input placeholder="Company Name" required>
+<input placeholder="Country" required>
+<select>
 <option>Diesel EN590</option>
 <option>Jet Fuel</option>
 <option>Crude Oil</option>
-<option>LPG</option>
-<option>Gasoline</option>
 </select>
-
-<input type="text" placeholder="Quantity (MT)" required>
-
-<textarea placeholder="Delivery Port / Details"></textarea>
-
-<button class="submit">Submit Request</button>
+<input placeholder="Quantity (MT)" required>
+<button class="submit">Submit</button>
 </form>
 </div>
 
-<!-- SELLER REGISTRATION -->
+<!-- SELLER -->
 <div id="seller" class="section">
 <form>
-<h2>Register as Seller</h2>
-
-<input type="text" placeholder="Company Name" required>
-<input type="text" placeholder="Country" required>
-<input type="text" placeholder="Contact Person" required>
-<input type="email" placeholder="Email" required>
-
-<select required>
-<option value="">Product You Sell</option>
+<h2>Seller Registration</h2>
+<input placeholder="Company Name" required>
+<input placeholder="Country" required>
+<input placeholder="Contact Email" required>
+<select>
 <option>Diesel EN590</option>
 <option>Jet Fuel</option>
 <option>Crude Oil</option>
-<option>LPG</option>
-<option>Gasoline</option>
 </select>
-
-<textarea placeholder="Company Details"></textarea>
-
 <button class="submit">Register</button>
 </form>
 </div>
 
-<!-- MARKET PRICES -->
-<div id="market" class="section">
-<div class="market">
-<h2>Live Market Prices</h2>
-
-<div class="price">Gold Price: <span id="gold">Loading...</span></div>
-<div class="price">Diesel EN590 Price: <span id="diesel">Loading...</span></div>
-
-<button onclick="updatePrices()">Refresh Prices</button>
-</div>
-</div>
-
 <script>
 
-/* NAVIGATION FUNCTION */
-function showSection(section){
-    document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
-    document.getElementById(section).classList.add("active");
+/* NAVIGATION */
+function showSection(id){
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
 }
 
-/* RANDOM PRICE SIMULATION (until we connect real API later) */
-function updatePrices(){
+/* REGISTER ACCOUNT */
+function register(){
 
-    let gold = (2300 + Math.random()*50).toFixed(2);
-    let diesel = (780 + Math.random()*40).toFixed(2);
+    let user = document.getElementById("regUser").value;
+    let pass = document.getElementById("regPass").value;
 
-    document.getElementById("gold").innerText = "$ " + gold + " / oz";
-    document.getElementById("diesel").innerText = "$ " + diesel + " / MT";
+    if(user === "" || pass === ""){
+        alert("Please fill username and password");
+        return;
+    }
+
+    localStorage.setItem("user", user);
+    localStorage.setItem("pass", pass);
+
+    alert("Account created successfully!");
 }
 
-/* AUTO LOAD PRICES */
-updatePrices();
+/* LOGIN */
+document.getElementById("loginForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    let user = document.getElementById("loginUser").value;
+    let pass = document.getElementById("loginPass").value;
+
+    let savedUser = localStorage.getItem("user");
+    let savedPass = localStorage.getItem("pass");
+
+    if(user === savedUser && pass === savedPass){
+        showSection("dashboard");
+    }else{
+        alert("Wrong username or password");
+    }
+
+});
 
 </script>
 
