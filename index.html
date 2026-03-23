@@ -3,84 +3,135 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PetroTrade Platform</title>
+<title>PetroTrade Global | Oil Trading Platform</title>
 
 <style>
 body{
-    font-family: Arial;
-    margin:0;
-    background:#f4f4f4;
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#07141d;
+color:white;
 }
 
 /* HEADER */
 header{
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:15px;
+background:#041018;
+padding:20px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #1c3c50;
 }
 
-/* NAV */
-nav{
-    background:#222;
-    padding:10px;
-    text-align:center;
+.logo{
+font-size:24px;
+font-weight:bold;
+color:#d4af37;
 }
 
-nav button{
-    padding:10px 15px;
-    margin:5px;
-    border:none;
-    background:#ff9800;
-    color:white;
-    cursor:pointer;
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-size:14px;
 }
 
-/* SECTIONS */
-.section{
-    display:none;
-    padding:20px;
+/* HERO */
+.hero{
+padding:100px 60px;
+background:linear-gradient(to right,#07141d,#0c2a3b);
 }
 
-.active{
-    display:block;
+.hero h1{
+font-size:42px;
+margin-bottom:20px;
 }
 
-/* FORM */
-form{
-    background:white;
-    padding:20px;
-    max-width:450px;
-    margin:auto;
-    box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+.hero p{
+font-size:18px;
+color:#c7d0d6;
+max-width:700px;
 }
 
-input, select, textarea{
-    width:100%;
-    padding:10px;
-    margin-top:10px;
+.buttons{
+margin-top:35px;
 }
 
-button.submit{
-    background:#28a745;
-    color:white;
-    margin-top:15px;
+.btn{
+padding:15px 30px;
+text-decoration:none;
+display:inline-block;
+margin-right:15px;
+border-radius:4px;
+font-size:16px;
 }
 
-/* MARKET PANEL */
-.market{
-    background:white;
-    max-width:600px;
-    margin:20px auto;
-    padding:20px;
-    text-align:center;
-    box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+.primary{
+background:#d4af37;
+color:black;
 }
 
-.price{
-    font-size:20px;
-    margin:10px 0;
-    font-weight:bold;
+.secondary{
+border:1px solid #d4af37;
+color:#d4af37;
+}
+
+/* PRICE SECTION */
+.price-section{
+padding:60px;
+}
+
+.price-title{
+color:#d4af37;
+margin-bottom:25px;
+}
+
+.price-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.price-box{
+background:#041018;
+padding:25px;
+border-radius:8px;
+}
+
+/* NEWS SECTION */
+.news-section{
+padding:60px;
+background:#041018;
+}
+
+.news-title{
+color:#d4af37;
+margin-bottom:30px;
+}
+
+.news-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.news-box{
+background:#07141d;
+padding:20px;
+border-radius:8px;
+}
+
+.news-box h3{
+color:#d4af37;
+}
+
+/* FOOTER */
+footer{
+background:#020b11;
+padding:40px;
+text-align:center;
+color:#8fa3ad;
+margin-top:80px;
 }
 </style>
 </head>
@@ -88,154 +139,163 @@ button.submit{
 <body>
 
 <header>
-<h1>PetroTrade Platform</h1>
-<p>Buy & Sell Petroleum Products Worldwide</p>
-</header>
+<div class="logo">PetroTrade Global</div>
 
 <nav>
-<button onclick="showSection('login')">Login</button>
-<button onclick="showSection('buyer')">Buyer Request</button>
-<button onclick="showSection('seller')">Register as Seller</button>
-<button onclick="showSection('market')">Market Prices</button>
-<button onclick="showSection('dashboard')">Dashboard</button>
+<a href="index.html">Home</a>
+<a href="find-sellers.html">Find Sellers</a>
+<a href="buyer-request.html">Buyer Request</a>
+<a href="seller-registration.html">Register as Seller</a>
+<a href="login.html">Login</a>
 </nav>
+</header>
 
-<!-- LOGIN -->
-<div id="login" class="section active">
-<form id="loginForm">
-<h2>Login</h2>
+<section class="hero">
+<h1>Global Platform for Crude Oil & Petroleum Trading</h1>
 
-<input type="email" id="loginEmail" placeholder="Email" required>
-<input type="password" id="loginPassword" placeholder="Password" required>
+<p>PetroTrade Global connects verified buyers and sellers of crude oil, diesel EN590, Jet Fuel A1 and LNG worldwide.</p>
 
-<button class="submit" type="submit">Login</button>
-
-<hr>
-
-<h3>Create Account</h3>
-
-<input type="email" id="regEmail" placeholder="Email" required>
-<input type="password" id="regPassword" placeholder="Password" required>
-
-<button type="button" onclick="createAccount()" class="submit">Create Account</button>
-</form>
+<div class="buttons">
+<a href="buyer-request.html" class="btn primary">Request Petroleum Products</a>
+<a href="seller-registration.html" class="btn secondary">Register as Seller</a>
 </div>
-
-<!-- DASHBOARD -->
-<div id="dashboard" class="section">
-<div style="text-align:center; font-size:22px; padding:30px;">
-<h2>Welcome to PetroTrade</h2>
-<p>You are logged in successfully</p>
-</div>
-</div>
-
-<!-- BUYER -->
-<div id="buyer" class="section">
-<form>
-<h2>Buyer Request Form</h2>
-<input placeholder="Company Name" required>
-<input placeholder="Country" required>
-
-<select>
-<option>Diesel EN590</option>
-<option>Jet Fuel</option>
-<option>Crude Oil</option>
-</select>
-
-<input placeholder="Quantity (MT)" required>
-
-<button class="submit">Submit</button>
-</form>
-</div>
-
-<!-- SELLER -->
-<div id="seller" class="section">
-<form>
-<h2>Register as Seller</h2>
-
-<input placeholder="Company Name" required>
-<input placeholder="Country" required>
-<input placeholder="Contact Email" required>
-
-<select>
-<option>Diesel EN590</option>
-<option>Jet Fuel</option>
-<option>Crude Oil</option>
-</select>
-
-<button class="submit">Register</button>
-</form>
-</div>
+</section>
 
 <!-- MARKET PRICES -->
-<div id="market" class="section">
-<div class="market">
-<h2>Market Prices</h2>
+<section class="price-section">
 
-<div class="price">Gold Price: <span id="gold">Loading...</span></div>
-<div class="price">Diesel EN590 Price: <span id="diesel">Loading...</span></div>
+<h2 class="price-title">Global Petroleum & Commodity Market Prices</h2>
 
-<button onclick="updatePrices()">Refresh Prices</button>
+<div class="price-grid">
+
+<div class="price-box">
+<h3>Brent Crude Oil</h3>
+<div id="brent_chart"></div>
 </div>
+
+<div class="price-box">
+<h3>WTI Crude Oil</h3>
+<div id="wti_chart"></div>
 </div>
+
+<div class="price-box">
+<h3>Diesel EN590 (Global Market Price)</h3>
+<div id="diesel_chart"></div>
+</div>
+
+<div class="price-box">
+<h3>Jet Fuel A1 (Aviation Fuel Market Price)</h3>
+<div id="jet_chart"></div>
+</div>
+
+<div class="price-box">
+<h3>LNG Market Price (Natural Gas Global Index)</h3>
+<div id="lng_chart"></div>
+</div>
+
+<div class="price-box">
+<h3>Gold Market Price</h3>
+<div id="gold_chart"></div>
+</div>
+
+</div>
+
+</section>
+
+<!-- TRADINGVIEW SCRIPT -->
+<script src="https://s3.tradingview.com/tv.js"></script>
 
 <script>
-
-/* NAVIGATION */
-function showSection(id){
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-}
-
-/* CREATE ACCOUNT */
-function createAccount(){
-
-    let email = document.getElementById("regEmail").value;
-    let password = document.getElementById("regPassword").value;
-
-    if(email === "" || password === ""){
-        alert("Please fill all fields");
-        return;
-    }
-
-    localStorage.setItem("userEmail", email);
-    localStorage.setItem("userPass", password);
-
-    alert("Account created successfully!");
-}
-
-/* LOGIN */
-document.getElementById("loginForm").addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    let email = document.getElementById("loginEmail").value;
-    let password = document.getElementById("loginPassword").value;
-
-    let savedEmail = localStorage.getItem("userEmail");
-    let savedPass = localStorage.getItem("userPass");
-
-    if(email === savedEmail && password === savedPass){
-        showSection("dashboard");
-    }else{
-        alert("Wrong email or password");
-    }
+new TradingView.widget({
+"width": "100%",
+"height": 280,
+"symbol": "TVC:UKOIL",
+"interval": "D",
+"theme": "dark",
+"style": "1",
+"container_id": "brent_chart"
 });
 
-/* PRICE FUNCTION (THIS WAS MISSING BEFORE) */
-function updatePrices(){
+new TradingView.widget({
+"width": "100%",
+"height": 280,
+"symbol": "TVC:USOIL",
+"interval": "D",
+"theme": "dark",
+"style": "1",
+"container_id": "wti_chart"
+});
 
-    let gold = (2300 + Math.random()*50).toFixed(2);
-    let diesel = (780 + Math.random()*40).toFixed(2);
+new TradingView.widget({
+"width": "100%",
+"height": 280,
+"symbol": "NYMEX:HO1!",
+"interval": "D",
+"theme": "dark",
+"style": "1",
+"container_id": "diesel_chart"
+});
 
-    document.getElementById("gold").innerText = "$ " + gold + " / oz";
-    document.getElementById("diesel").innerText = "$ " + diesel + " / MT";
-}
+new TradingView.widget({
+"width": "100%",
+"height": 280,
+"symbol": "NYMEX:HO1!",
+"interval": "D",
+"theme": "dark",
+"style": "1",
+"container_id": "jet_chart"
+});
 
-/* AUTO LOAD PRICES */
-updatePrices();
+new TradingView.widget({
+"width": "100%",
+"height": 280,
+"symbol": "NYMEX:NG1!",
+"interval": "D",
+"theme": "dark",
+"style": "1",
+"container_id": "lng_chart"
+});
 
+new TradingView.widget({
+"width": "100%",
+"height": 280,
+"symbol": "OANDA:XAUUSD",
+"interval": "D",
+"theme": "dark",
+"style": "1",
+"container_id": "gold_chart"
+});
 </script>
+
+<!-- MARKET NEWS -->
+<section class="news-section">
+
+<h2 class="news-title">Latest Oil & Energy Market News</h2>
+
+<div class="news-grid">
+
+<div class="news-box">
+<h3>Global oil prices rising again</h3>
+<p>Energy markets are seeing strong movement due to global demand and supply disruptions in several regions.</p>
+</div>
+
+<div class="news-box">
+<h3>Diesel demand increasing worldwide</h3>
+<p>Diesel EN590 demand is growing, especially in Europe and Asia, due to transportation and industrial usage.</p>
+</div>
+
+<div class="news-box">
+<h3>LNG market under pressure</h3>
+<p>Global LNG demand is increasing while supply remains limited, pushing long-term contracts higher.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+PetroTrade Global © 2026 | International Petroleum Trading Platform
+</footer>
 
 </body>
 </html>
